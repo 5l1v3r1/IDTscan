@@ -1,3 +1,4 @@
+#!usr/bin/env python
 """  IDTscan(Include and Directory Traversal scanner ) is a script written in python for Web-audit and penetration testing .
 It scan a host for discover  include and directory traversal vulnerabilities  fastly !!
 
@@ -33,11 +34,11 @@ elif len(sys.argv) == 2:
     include_url = ((domain) + "/index.php?page=https://www.google.com")
     directory_traversal_url = ((domain) + "/index.php?page=.../.../.../.../etc/passwd")
     print ("_____ _____ _______")
-    print(" |_   _|  __ \__   __| ")
+    print(" |_    _| __ \__  __| ")
     print (" | | | |  | | | |___  ___ __ _ _ __    ")
     print (" | | | |  | | | / __|/ __/ _` | '_ \ ")                  
     print (" | |_| |__| | | \__ \ (_| (_| | || | ")
-    print (" |__ __|_____/|_|___/\___\__,_|_||_| ")
+    print (" |__ __|____ /|_|___/\___\__,_|_||_| ")
     print ("")
     print ("author: Had1X ")
     time.sleep(2)
