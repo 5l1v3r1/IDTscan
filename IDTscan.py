@@ -49,11 +49,11 @@ elif len(sys.argv) == 2:
     if (r.status_code) == (requests.codes.ok):
         time.sleep(2)
         print ("[+] include vulnerability was discovered:\n ",(include_url))
-        include_vuln = True
+        
         time.sleep(2)
     else:
         print (" [-] include vulnerability was no discovered ")
-        include_vuln = False
+      
         time.sleep(2)
         print ("")
         print (" scanning host for directory traversal  vulnerability ... ")
@@ -61,41 +61,14 @@ elif len(sys.argv) == 2:
         d  = requests.get(directory_traversal_url)
         if (d.status_code)  == (requests.codes.ok):
            print (" [+] directory traversal vulnerability was discovered :\n",(directory_traversal_url))
-           dir_trav_vuln = True
+           
            time.sleep(3)
-           print ("")
+           
         else:
          print ("[-]directory traversal vulnerability was no discovered ")
-         dir_trav_vuln = False
+         
          time.sleep(3)
-         print ("")
-
-    if (include_vuln) == True and (dir_trav_vuln) == True :
-        print ("[*] host : ",(domain))
-        print ("[+]Include vulnerability : Yes ")
-        print  ("[+]Directory traversal vulnerability :  Yes ")
-        time.sleep(3)
-        sys.exit()
-    elif (include_vuln) == False  and (dir_trav_vuln) ==  False :
-        print ("[*]host ",(domain))
-        print ("[-]Include vulnerability : No ")
-        print  ("[-]Directory traversal vulnerability : No ")
-        time.sleep(3)
-        sys.exit()
-    elif (include_vuln)  == True and (dir_trav_vuln) == False :
-        print ("[*] host ",(domain))
-        print ("[+]Include vulnerability : Yes ")
-        print ("[-]Directory traversal : No ")
-        time.sleep(3)
-        sys.exit()
-    else:
-        print ("host : ",(domain))
-        print ("[-]Include vulnerability : No ")
-        print ("")
-        print ("[+]Directory traversal vulnerabilty : Yes")
-        print (" page : ",(directory_traversal_url))
-        time.sleep(3)
-        sys.exit()
+         
                 
         
 
