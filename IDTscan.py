@@ -1,22 +1,23 @@
+#!/usr/bin/python
 
-"""  IDTscan(Include and Directory Traversal scanner ) is a script written in python for Web-audit and penetration testing .
-It scan a host for discover  include and directory traversal vulnerabilities  fastly !!
+"""  IDTscan  is a tool written in python for Web-audit and penetration testing .
+It scan a host for discover  local and remote files inclusion vulnerabilities  fastly !!
 
-The author isn't responable for all damages caused by script
+The author isn't responable for all damages caused by tool
 Author:Had1x aka H11
 licence: GNU GPL V3
 
 Requirements :
 -requests module
--python version + 3.0
+
 
 Installing requests in Debian-based distribution :
 sudo apt-get install python-pip
 pip install requests
 
 Usage:
-python IDTscan.py https://www.domain-name.com
-./IDTscan.py https://www.domain-name.com  """
+./idtscan.py https://www.domain-name.com
+ """
 
 
 import sys
@@ -44,28 +45,30 @@ elif len(sys.argv) == 2:
     time.sleep(2)
     print ("")
     print ("[+] scanning : ",(domain),"...")
-    print ("scanning for include vulnerability ...")
+    print ("scanning for remote file inclusion  vulnerability ...")
     r = requests.get(include_url)
     if (r.status_code) == (requests.codes.ok):
         time.sleep(2)
-        print ("[+] include vulnerability was discovered:\n ",(include_url))
+        print ("[+] remote file inclusion vulnerability was discovered:\n ",(include_url))
+        print ("[+] OWASP docs : https://www.owasp.org/index.php/Testing_for_Remote_File_Inclusion ")
         
         time.sleep(2)
     else:
-        print (" [-] include vulnerability was no discovered ")
+        print (" [-] remote files inclusion vulnerability was no discovered ")
       
         time.sleep(2)
         print ("")
-        print (" scanning host for directory traversal  vulnerability ... ")
+        print ("scanning host for local file inclusion vulnerability ... ")
         time.sleep(2)
         d  = requests.get(directory_traversal_url)
         if (d.status_code)  == (requests.codes.ok):
-           print (" [+] directory traversal vulnerability was discovered :\n",(directory_traversal_url))
+           print (" [+] local file inclusion  was discovered :\n",(directory_traversal_url))
+           print (" OWASP docs : https://www.owasp.org/index.php/Testing_for_Local_File_Inclusion ")
            
            time.sleep(3)
            
         else:
-         print ("[-]directory traversal vulnerability was no discovered ")
+         print ("[-]local files inclusion vulnerability was no discovered ")
          
          time.sleep(3)
          
